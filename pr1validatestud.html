@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <script>
+        function validateForm() {
+            let namePattern = /^[A-Za-z]+$/;
+            let firstName = document.getElementById("firstName").value;
+            let lastName = document.getElementById("lastName").value;
+            let age = document.getElementById("age").value;
+
+            if (!namePattern.test(firstName) || !namePattern.test(lastName)) {
+                alert("First and Last name must contain only alphabets.");
+                return false;
+            }
+            if (age < 18 || age > 50) {
+                alert("Age must be between 18 and 50.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Student Registration</h2>
+    <form onsubmit="return validateForm()">
+        <input type="text" id="firstName" placeholder="First Name" required><br><br>
+        <input type="text" id="lastName" placeholder="Last Name" required><br><br>
+        <input type="number" id="age" placeholder="Age" required><br><br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+
+</html>
